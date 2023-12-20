@@ -5,18 +5,26 @@ import { lusitana } from '@/ui/fonts';
 import { fetchLatestInvoices, fetchRevenue, fetchCardData } from '@/lib/data';
 
 export default async function Page() {
-  const [revenue, latestInvoices, cardData] = await Promise.all([
-    fetchRevenue(),
-    fetchLatestInvoices(),
-    fetchCardData(),
-  ]);
+  // const [revenue, latestInvoices, cardData] = await Promise.all([
+  //   fetchRevenue(),
+  //   fetchLatestInvoices(),
+  //   fetchCardData(),
+  // ]);
+
+  // const {
+  //   numberOfCustomers,
+  //   numberOfInvoices,
+  //   totalPaidInvoices,
+  //   totalPendingInvoices,
+  // } = cardData;
+  const revenue = await fetchRevenue();
+  const latestInvoices = await fetchLatestInvoices();
   const {
     numberOfCustomers,
     numberOfInvoices,
     totalPaidInvoices,
     totalPendingInvoices,
-  } = cardData;
-
+  } = await fetchCardData();
   return (
     <main>
       <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
