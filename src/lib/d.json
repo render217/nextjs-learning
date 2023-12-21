@@ -1,0 +1,31 @@
+{
+  "success": false,
+  "error": {
+    "issues": [
+      {
+        "code": "invalid_type",
+        "expected": "string",
+        "received": "null",
+        "path": ["customerId"],
+        "message": "Please select a customer"
+      },
+      {
+        "code": "too_small",
+        "minimum": 0,
+        "type": "number",
+        "inclusive": false,
+        "exact": false,
+        "message": "Please enter an amount greater thatn $0",
+        "path": ["amount"]
+      },
+      {
+        "expected": "'pending' | 'paid'",
+        "received": "null",
+        "code": "invalid_type",
+        "path": ["status"],
+        "message": "Please select an invoice status"
+      }
+    ],
+    "name": "ZodError"
+  }
+}
