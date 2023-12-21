@@ -1,3 +1,4 @@
+'use client';
 import { CustomerField } from '@/lib/definitions';
 import Link from 'next/link';
 import {
@@ -7,10 +8,11 @@ import {
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
 import { Button } from '@/ui/button';
+import { createInvoice } from '@/lib/actions';
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
   return (
-    <form>
+    <form action={createInvoice} method="POST">
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Customer Name */}
         <div className="mb-4">
